@@ -4,7 +4,6 @@
 # - Upon first execution, API will ask for authorization via web browser redirect URI. Paste the redirect site, then it will generate a .cache file so you don't have to do it again.
 
 import spotipy
-import os
 import time
 import datetime
 import json
@@ -50,18 +49,14 @@ def get_user_library(scope, output):
     f.close()
 
 def get_currently_playing(scope):
-    client_id = os.environ.get('spotify_client_id')
-    client_secret = os.environ.get('spotify_client_secret')
-    client_redirect_uri = os.environ.get('spotify_client_redirect_uri')
+    client_id, client_secret, client_redirect_uri = get_vars()
 
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope, client_id=client_id, client_secret=client_secret, redirect_uri=client_redirect_uri))
 
     print(sp.currently_playing())
 
 def get_user_top(scope):
-    client_id = os.environ.get('spotify_client_id')
-    client_secret = os.environ.get('spotify_client_secret')
-    client_redirect_uri = os.environ.get('spotify_client_redirect_uri')
+    client_id, client_secret, client_redirect_uri = get_vars()
 
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope, client_id=client_id, client_secret=client_secret, redirect_uri=client_redirect_uri))
 
