@@ -1,0 +1,5 @@
+{
+    "spotify_client_id": "xxx",
+    "spotify_client_secret": "xxx",
+    "spotify_client_redirect_uri": "https://xxx"
+}
